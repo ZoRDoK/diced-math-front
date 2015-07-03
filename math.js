@@ -24,7 +24,15 @@
     $scope.remove = function(array, index){
       array.splice(index, 1);
     };
-    
+  
+    $scope.move = function(array, index, to){
+      if(index+to < 0) return;
+      if(index+to >= array.length) return;
+      var tmp = array[index];
+      array[index] = array[index+to];
+      array[index+to] = tmp;
+    };
+
     $scope.successed = [];
     
     $scope.send = function () {
